@@ -74,6 +74,7 @@ class SharedPtr {
   }
   auto operator-> () const -> T* { return data; }
   auto get() -> T* { return data; }
+
   void reset() {
     if (!*this) return;
     c_ptr->decrease();
