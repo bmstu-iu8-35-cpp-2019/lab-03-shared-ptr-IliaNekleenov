@@ -72,6 +72,7 @@ class SharedPtr {
     }
     return *data;
   }
+
   auto operator-> () const -> T* { return data; }
   auto get() -> T* { return data; }
 
