@@ -69,7 +69,7 @@ class SharedPtr {
   operator bool() const { return !(data == nullptr); }
   auto operator*() const -> T& {
     if (!*this) {
-      throw std::logic_error();
+      throw std::logic_error("attempt to get value of nullptr");
     }
     return *data;
   }
