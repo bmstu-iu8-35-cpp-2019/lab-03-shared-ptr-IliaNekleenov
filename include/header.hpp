@@ -68,8 +68,8 @@ class SharedPtr {
 
   operator bool() const { return !(data == nullptr); }
   auto operator*() const -> T& {
-    if (!this) {
-      throw std::logic_error("attempt to get value of nullptr");
+    if (!*this) {
+      throw std::logic_error();
     }
     return *data;
   }
@@ -105,7 +105,7 @@ class SharedPtr {
     *this = buf;
   }
   auto use_count() const -> size_t {
-    if (!this) return 0;
+    if (!*this) return 0;
     return static_cast<size_t>(c_ptr->get());
   }
 };

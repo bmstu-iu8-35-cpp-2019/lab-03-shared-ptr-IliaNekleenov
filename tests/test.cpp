@@ -7,8 +7,8 @@
 TEST(SHARED_PTR, init) {
   SharedPtr<int> ptr;
   EXPECT_FALSE(ptr);
-  EXPECT_EQ(p.use_count(), 0);
-  EXPECT_THROW(*ptr, std::logic_error("attempt to get value of nullptr"));
+  EXPECT_EQ(ptr.use_count(), 0);
+  EXPECT_THROW(*ptr, std::logic_error());
   int value = 5;
   SharedPtr<int> p(&value);
   EXPECT_EQ(p.use_count(), 1);
