@@ -53,6 +53,7 @@ class SharedPtr {
     }
     c_ptr = r.c_ptr;
     data = r.data;
+    return *this;
   }
   auto operator=(SharedPtr&& r) -> SharedPtr& {
     if (*this) {
@@ -64,6 +65,7 @@ class SharedPtr {
     }
     c_ptr = r.c_ptr;
     data = r.data;
+    return *this;
   }
 
   operator bool() const { return !(data == nullptr); }
