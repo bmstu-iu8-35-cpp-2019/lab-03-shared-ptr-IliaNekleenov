@@ -43,7 +43,7 @@ TEST(SHARED_PTR, test_of_reset) {
   EXPECT_EQ(p.use_count(), 0);
   EXPECT_EQ(p1.use_count(), 1);
   int* val = new int(10);
-  p1.reset(&val);
+  p1.reset(val);
   EXPECT_EQ(p1.use_count(), 1);
   EXPECT_EQ(*p1, 10);
 }
