@@ -43,6 +43,15 @@ class SharedPtr {
     if (r) c_ptr->increase();
     data = r.data;
   }
+  ~SharedPtr() {
+    if (*this) {
+      c_ptr->decrease();
+      if (*c_ptr == 0) {
+        delete c_ptr;
+        delete data;
+      }
+    }
+  }
   auto operator=(const SharedPtr& r) -> SharedPtr<T>& {
     if (*this) {
       c_ptr->decrease();
