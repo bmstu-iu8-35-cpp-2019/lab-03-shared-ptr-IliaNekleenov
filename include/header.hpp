@@ -62,6 +62,7 @@ class SharedPtr {
     }
     c_ptr = r.c_ptr;
     data = r.data;
+    if (*this) c_ptr->increase();
     return *this;
   }
   auto operator=(SharedPtr&& r) -> SharedPtr& {
@@ -74,6 +75,7 @@ class SharedPtr {
     }
     c_ptr = r.c_ptr;
     data = r.data;
+    if (*this) c_ptr->increase();
     return *this;
   }
 
