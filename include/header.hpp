@@ -5,13 +5,14 @@
 
 #include <atomic>
 #include <stdexcept>
+#include <utility>
 
 class counter {
   std::atomic<int> count;
 
  public:
   counter();
-  counter(int c);
+  explicit counter(int c);
   void increase();
   void decrease();
   bool operator==(const int& a) const;
@@ -28,7 +29,7 @@ class SharedPtr {
     c_ptr = nullptr;
     data = nullptr;
   }
-  SharedPtr(T* p) {
+  explicit SharedPtr(T* p) {
     c_ptr = new counter(1);
     data = p;
   }
