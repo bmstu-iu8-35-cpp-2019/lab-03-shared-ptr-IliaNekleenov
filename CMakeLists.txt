@@ -37,7 +37,6 @@ add_executable(tests
   ${CMAKE_CURRENT_SOURCE_DIR}/tests/test.cpp
 )
 
-
 target_include_directories("Shared_ptr" 
   PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
